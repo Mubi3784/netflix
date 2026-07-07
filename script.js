@@ -54,6 +54,16 @@ const movies = [
     rating: "U/A 16+",
     genres: ["Action", "Drama"],
     synopsis: "An elite operative goes rogue after a mission gone wrong, racing against time to clear his name while uncovering a conspiracy that reaches the top."
+  },
+  {
+    rank: 6,
+    title: "Maa Behn",
+    poster: "./src/trending/maaBehn.jpeg",
+    banner: "./src/trending/maaBehn.jpeg",
+    year: 2025,
+    rating: "U/A 16+",
+    genres: ["Action", "Drama"],
+    synopsis: "When trouble knocks on her door, a mother and her estranged daughters attempt to cover up a crime in a nosy colony where no secret is safe."
   }
 ];
 
