@@ -1,0 +1,502 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  :root {
+    --netflix-red: #e50914;
+    --bg-black: #000000;
+    --bg-dark: #141414;
+    --text-grey: #b3b3b3;
+    --text-light-grey: #e5e5e5;
+    --card-purple-start: #2b1c3f;
+    --card-purple-end: #0d0710;
+  }
+
+  body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: var(--bg-black);
+    color: #ffffff;
+    line-height: 1.4;
+  }
+
+  a {
+    color: var(--text-grey);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+
+  .container {
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 0 45px;
+  }
+
+  /* ============================================================
+     HERO SECTION
+     Background image placeholder: https://placehold.co/1600x900/1a1a1a/333333?text=Netflix+Background+Collage
+  ============================================================ */
+  .hero {
+    position: relative;
+    min-height: 640px;
+    background-image:
+      linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.55) 60%, #000000 100%),
+      url("./src/netflix-bg.jpg");
+    background-size: cover;
+    background-position: center top;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* subtle darkening overlay for cinematic look */
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(0.3px);
+    z-index: 1;
+  }
+
+  .hero > * {
+    position: relative;
+    z-index: 2;
+  }
+
+  /* --- Header --- */
+  .site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 45px 0;
+  }
+
+  .logo {
+    color: var(--netflix-red);
+    font-size: 2.1rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+  }
+
+  .btn-signin {
+    background-color: var(--netflix-red);
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 7px 17px;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-signin:hover {
+    text-decoration: none;
+    background-color: #c40812;
+  }
+
+  /* --- Hero content --- */
+  .hero-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px 90px;
+  }
+
+  .hero-content h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    max-width: 700px;
+    line-height: 1.15;
+    margin-bottom: 18px;
+  }
+
+  .hero-subtitle {
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin-bottom: 28px;
+  }
+
+  .hero-cta-label {
+    font-size: 1.1rem;
+    margin-bottom: 18px;
+}
+
+  .email-form {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    max-width: 620px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .email-form input[type="email"] {
+    flex: 1 1 320px;
+    min-width: 240px;
+    padding: 16px 14px;
+    background: rgba(0, 0, 0, 0.55);
+    border: 1px solid #8c8c8c;
+    border-radius: 3px;
+    color: #ffffff;
+    font-size: 1rem;
+  }
+
+  .email-form input[type="email"]::placeholder {
+    color: #8c8c8c;
+  }
+
+  .btn-getstarted {
+    background-color: var(--netflix-red);
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.3rem;
+    padding: 12px 24px;
+    border-radius: 3px;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    flex: 0 0 auto;
+  }
+
+  .btn-getstarted:hover {
+    background-color: #c40812;
+    text-decoration: none;
+  }
+
+  .btn-getstarted .arrow {
+    font-size: 1.3rem;
+    line-height: 1;
+  }
+
+  /* ============================================================
+     CURVED RED SEPARATOR
+     Sits exactly between hero and Trending Now section
+  ============================================================ */
+  .curve-separator {
+    position: relative;
+    width: 100%;
+    height: 60px;
+    background: var(--bg-black);
+    overflow: hidden;
+    margin-top: -2px;
+  }
+
+  .curve-separator svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .trending {
+    padding: 10px 0 70px;
+  }
+
+  .section-title {
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin-bottom: 22px;
+  }
+
+  .trending-track {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    scrollbar-width: none;
+  }
+
+  .trending-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .trending-card {
+    position: relative;
+    flex: 0 0 auto;
+    width: 200px;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .trending-card .rank {
+    position: relative;
+    z-index: 1;
+    font-size: 8rem;
+    font-weight: 800;
+    line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: 3px #52525b;
+    font-family: 'Arial Black', Helvetica, Arial, sans-serif;
+    margin-right: -34px;
+    user-select: none;
+  }
+
+  .trending-card .poster {
+    position: relative;
+    z-index: 2;
+    width: 155px;
+    height: 218px;
+    border-radius: 4px;
+    overflow: hidden;
+    flex-shrink: 0;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.6);
+  }
+
+
+  /* more reson */
+  .more-reasons {
+    padding: 10px 0 70px;
+  }
+
+  .reasons-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+  }
+
+  .reason-card {
+    position: relative;
+    min-height: 280px;
+    background: linear-gradient(160deg, var(--card-purple-start) 30%, var(--card-purple-end) 75%);
+    border-radius: 8px;
+    padding: 28px 24px;
+    overflow: hidden;
+  }
+
+  .reason-card h3 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    max-width: 85%;
+  }
+
+  .reason-card p {
+    color: var(--text-light-grey);
+    font-size: 0.95rem;
+    max-width: 90%;
+  }
+
+  .reason-icon {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+  }
+
+/* faq */
+
+.faq {
+    padding: 10px 0 70px;
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    max-width: 1250px;
+  }
+
+  .faq-item {
+    background-color: #2d2d2d;
+    border-radius: 2px;
+  }
+
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 26px;
+    font-size: 1.25rem;
+    font-weight: 400;
+  }
+
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item summary .toggle-icon {
+    font-size: 1.8rem;
+    font-weight: 300;
+    flex-shrink: 0;
+    margin-left: 20px;
+    transition: transform 0.2s ease;
+    position: relative;
+    width: 24px;
+    height: 24px;
+  }
+
+  .faq-item summary .toggle-icon::before,
+  .faq-item summary .toggle-icon::after {
+    content: "";
+    position: absolute;
+    background: #ffffff;
+    transition: transform 0.2s ease;
+  }
+
+  .faq-item summary .toggle-icon::before {
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    transform: translateY(-50%);
+  }
+
+  .faq-item summary .toggle-icon::after {
+    left: 50%;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    transform: translateX(-50%);
+  }
+
+  .faq-item[open] summary .toggle-icon::after {
+    transform: translateX(-50%) rotate(90deg);
+    opacity: 0;
+  }
+
+  .faq-answer {
+    padding: 0 26px 26px;
+    font-size: 1.1rem;
+    color: #ffffff;
+    max-width: 900px;
+  }
+
+  /* bottom cta */
+  .bottom-cta {
+    padding: 10px 0 70px;
+    text-align: center;
+  }
+
+  .bottom-cta p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+  }
+
+  .bottom-cta .email-form {
+    margin: 0 auto;
+  }
+
+  /* footer */
+
+  .site-footer {
+    padding: 40px 0 60px;
+    color: var(--text-grey);
+  }
+
+  .footer-contact {
+    display: inline-block;
+    margin-bottom: 25px;
+    font-size: 1rem;
+  }
+
+  .footer-links {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px 20px;
+    max-width: 900px;
+    margin-bottom: 35px;
+  }
+
+  .footer-links a {
+    font-size: 0.9rem;
+  }
+
+  .lang-select {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid #757575;
+    background: #000;
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 3px;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+  }
+
+  .footer-region {
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+  }
+
+  .footer-recaptcha {
+    font-size: 0.8rem;
+    color: #737373;
+  }
+
+
+  /* responsive */
+   @media (max-width: 900px) {
+    .reasons-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .footer-links {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .container {
+      padding: 0 20px;
+    }
+    .site-header {
+      padding: 18px 20px 0;
+    }
+    .logo {
+      font-size: 1.5rem;
+    }
+    .hero {
+      min-height: 520px;
+    }
+    .hero-content h1 {
+      font-size: 1.8rem;
+    }
+    .hero-subtitle {
+      font-size: 1.05rem;
+    }
+    .email-form {
+      flex-direction: column;
+    }
+    .btn-getstarted {
+      justify-content: center;
+    }
+    .reasons-grid {
+      grid-template-columns: 1fr;
+    }
+    .footer-links {
+      grid-template-columns: 1fr 1fr;
+    }
+    .trending-card .rank {
+      font-size: 5.5rem;
+      margin-right: -22px;
+    }
+    .trending-card .poster {
+      width: 120px;
+      height: 168px;
+    }
+}
