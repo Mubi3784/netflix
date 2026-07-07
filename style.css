@@ -90,10 +90,12 @@
   .btn-signin {
     background-color: var(--netflix-red);
     color: #ffffff;
+    height: 3rem;
+    width: 6rem;
     font-weight: 600;
     font-size: 0.95rem;
     padding: 7px 17px;
-    border-radius: 3px;
+    border-radius: 10px;
     border: none;
     cursor: pointer;
     line-height: 1.4;
