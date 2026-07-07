@@ -88,8 +88,8 @@ function renderTrendingCards() {
   // Build all card markup in one string, then a single DOM write.
   const cardsHTML = movies.map((movie, index) => `
     <article class="trending-card" data-index="${index}" tabindex="0" role="button" aria-label="View details for ${movie.title}">
+      <img class="poster" src="${movie.poster}" alt="${movie.title} poster" loading="lazy">
       <span class="rank">${movie.rank}</span>
-      <div class="poster" style="background-image: url('${movie.poster}');"></div>
     </article>
   `).join("");
 
@@ -112,8 +112,13 @@ function renderTrendingCards() {
 ============================================================ */
 function initSliderArrow() {
   sliderArrowRight.addEventListener("click", () => {
+    // Scroll by the width of one card + gap, measured live, so the
+    // "4.5 cards visible" layout keeps a consistent one-card-per-click feel
+    // at every viewport width instead of a hardcoded pixel guess.
+    const firstCard = trendingTrack.querySelector(".trending-card");
+    const step = firstCard ? firstCard.getBoundingClientRect().width + 6 : 420;
     trendingTrack.scrollBy({
-      left: 420,        // roughly one card + gap per click
+      left: step,
       behavior: "smooth"
     });
   });

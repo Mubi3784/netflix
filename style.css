@@ -10,8 +10,9 @@
     --bg-dark: #141414;
     --text-grey: #b3b3b3;
     --text-light-grey: #e5e5e5;
-    --card-purple-start: #2b1c3f;
-    --card-purple-end: #0d0710;
+    --card-purple-start: #1c1f3d;
+    --card-purple-end: #3a1250;
+    --icon-pink: #f2568b;
   }
 
   body {
@@ -19,6 +20,7 @@
     background-color: var(--bg-black);
     color: #ffffff;
     line-height: 1.4;
+    -webkit-font-smoothing: antialiased;
   }
 
   a {
@@ -41,15 +43,11 @@
     padding: 0 45px;
   }
 
-  /* ============================================================
-     HERO SECTION
-     Background image placeholder: https://placehold.co/1600x900/1a1a1a/333333?text=Netflix+Background+Collage
-  ============================================================ */
   .hero {
     position: relative;
     min-height: 640px;
     background-image:
-      linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.55) 60%, #000000 100%),
+      linear-gradient(to bottom, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.25) 28%, rgba(0,0,0,0.35) 55%, rgba(0,0,0,0.85) 82%, #000000 100%),
       url("./src/netflix-bg.jpg");
     background-size: cover;
     background-position: center top;
@@ -57,13 +55,14 @@
     flex-direction: column;
   }
 
-  /* subtle darkening overlay for cinematic look */
+  /* Radial vignette darkens the corners/edges so the white hero copy
+     reads cleanly against the busy poster collage, matching the
+     production site's stronger dark vignette. */
   .hero::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.35);
-    backdrop-filter: blur(0.3px);
+    background: radial-gradient(ellipse at center, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.55) 75%, rgba(0,0,0,0.8) 100%);
     z-index: 1;
   }
 
@@ -72,7 +71,6 @@
     z-index: 2;
   }
 
-  /* --- Header --- */
   .site-header {
     display: flex;
     align-items: center;
@@ -86,6 +84,7 @@
     font-weight: 800;
     letter-spacing: -1px;
     text-transform: uppercase;
+    line-height: 1;
   }
 
   .btn-signin {
@@ -97,6 +96,7 @@
     border-radius: 3px;
     border: none;
     cursor: pointer;
+    line-height: 1.4;
   }
 
   .btn-signin:hover {
@@ -104,7 +104,6 @@
     background-color: #c40812;
   }
 
-  /* --- Hero content --- */
   .hero-content {
     flex: 1;
     display: flex;
@@ -117,16 +116,18 @@
 
   .hero-content h1 {
     font-size: 3rem;
-    font-weight: 800;
+    font-weight: 700;
     max-width: 700px;
     line-height: 1.15;
     margin-bottom: 18px;
+    letter-spacing: -0.3px;
   }
 
   .hero-subtitle {
     font-size: 1.4rem;
     font-weight: 400;
     margin-bottom: 28px;
+    line-height: 1.3;
   }
 
   .hero-cta-label {
@@ -183,17 +184,31 @@
     line-height: 1;
   }
 
-  /* ============================================================
-     CURVED RED SEPARATOR
-     Sits exactly between hero and Trending Now section
-  ============================================================ */
   .curve-separator {
     position: relative;
     width: 100%;
     height: 60px;
     background: var(--bg-black);
-    overflow: hidden;
+    overflow: visible;
     margin-top: -2px;
+  }
+
+  /* Soft ambient glow sitting just under the curve — a wide, low
+     radial wash rather than a tight drop-shadow, so it reads like
+     light bleeding out from behind the arc. */
+  .curve-separator::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 8px;
+    transform: translateX(-50%);
+    width: 70%;
+    max-width: 900px;
+    height: 34px;
+    background: radial-gradient(ellipse at center, rgba(160, 190, 255, 0.35) 0%, rgba(120, 150, 255, 0.16) 45%, rgba(0,0,0,0) 75%);
+    filter: blur(6px);
+    pointer-events: none;
+    z-index: 0;
   }
 
   .curve-separator svg {
@@ -202,6 +217,8 @@
     left: 0;
     width: 100%;
     height: 100%;
+    z-index: 1;
+    filter: drop-shadow(0 4px 8px rgba(255, 255, 255, 0.25));
   }
 
   .trending {
@@ -216,9 +233,11 @@
 
   .trending-track {
     display: flex;
-    gap: 6px;
+    gap: 60px;
     overflow-x: auto;
-    padding-bottom: 10px;
+    overflow-y: visible;
+    padding: 10px 0 26px 42px;
+    margin-left: -42px;
     scrollbar-width: none;
   }
 
@@ -228,40 +247,43 @@
 
   .trending-card {
     position: relative;
-    flex: 0 0 auto;
-    width: 200px;
-    display: flex;
-    align-items: flex-end;
+    flex: 0 0 calc((100% - (4 * 60px)) / 4.6);
   }
 
+  /* Numbers now sit in front of their own poster (z-index above it)
+     and overlap its bottom-left corner with a negative offset. Since
+     they're on top, every number stays fully visible — the hollow,
+     transparent glyph body lets the poster show through the stroke's
+     interior instead of hiding the number behind the image. */
   .trending-card .rank {
-    position: relative;
-    z-index: 1;
-    font-size: 8rem;
+    position: absolute;
+    left: -0.28em;
+    bottom: -6%;
+    z-index: 10;
+    font-size: clamp(4.5rem, 8.5vw, 9rem);
     font-weight: 800;
     line-height: 1;
-    color: transparent;
-    -webkit-text-stroke: 3px #52525b;
+    color: black;
+    -webkit-text-stroke: 3px #e5e5e5;
+    text-stroke: 3px #e5e5e5;
     font-family: 'Arial Black', Helvetica, Arial, sans-serif;
-    margin-right: -34px;
     user-select: none;
+    pointer-events: none;
   }
 
   .trending-card .poster {
     position: relative;
     z-index: 2;
-    width: 155px;
-    height: 218px;
-    border-radius: 4px;
+    display: block;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 155 / 218;
+    border-radius: 10px;
     overflow: hidden;
-    flex-shrink: 0;
-    background-size: cover;
-    background-position: center;
+    object-fit: cover;
     box-shadow: 0 6px 16px rgba(0,0,0,0.6);
   }
 
-
-  /* more reson */
   .more-reasons {
     padding: 10px 0 70px;
   }
@@ -275,10 +297,23 @@
   .reason-card {
     position: relative;
     min-height: 280px;
-    background: linear-gradient(160deg, var(--card-purple-start) 30%, var(--card-purple-end) 75%);
+    background: linear-gradient(160deg, var(--card-purple-start) 25%, var(--card-purple-end) 100%);
     border-radius: 8px;
     padding: 28px 24px;
     overflow: hidden;
+  }
+
+  /* Soft glow blooming from the bottom-right corner, behind the icon,
+     so the gradient reads as "lit" rather than a flat diagonal fill. */
+  .reason-card::after {
+    content: "";
+    position: absolute;
+    right: -30px;
+    bottom: -30px;
+    width: 160px;
+    height: 160px;
+    background: radial-gradient(circle, rgba(242, 86, 139, 0.35) 0%, rgba(242, 86, 139, 0) 70%);
+    pointer-events: none;
   }
 
   .reason-card h3 {
@@ -286,27 +321,29 @@
     font-weight: 700;
     margin-bottom: 12px;
     max-width: 85%;
+    line-height: 1.25;
   }
 
   .reason-card p {
     color: var(--text-light-grey);
     font-size: 0.95rem;
     max-width: 90%;
+    line-height: 1.45;
   }
 
   .reason-icon {
     position: absolute;
     bottom: 20px;
     right: 20px;
+    z-index: 1;
     width: 56px;
     height: 56px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.8rem;
+    font-size: 1.9rem;
+    filter: drop-shadow(0 0 10px rgba(242, 86, 139, 0.55));
   }
-
-/* faq */
 
 .faq {
     padding: 10px 0 70px;
@@ -333,6 +370,11 @@
     padding: 22px 26px;
     font-size: 1.25rem;
     font-weight: 400;
+    transition: background-color 0.15s ease;
+  }
+
+  .faq-item summary:hover {
+    background-color: #454545;
   }
 
   .faq-item summary::-webkit-details-marker {
@@ -344,7 +386,7 @@
     font-weight: 300;
     flex-shrink: 0;
     margin-left: 20px;
-    transition: transform 0.2s ease;
+    transition: transform 0.25s ease;
     position: relative;
     width: 24px;
     height: 24px;
@@ -355,7 +397,7 @@
     content: "";
     position: absolute;
     background: #ffffff;
-    transition: transform 0.2s ease;
+    transition: transform 0.25s ease;
   }
 
   .faq-item summary .toggle-icon::before {
@@ -374,9 +416,8 @@
     transform: translateX(-50%);
   }
 
-  .faq-item[open] summary .toggle-icon::after {
-    transform: translateX(-50%) rotate(90deg);
-    opacity: 0;
+  .faq-item[open] summary .toggle-icon {
+    transform: rotate(45deg);
   }
 
   .faq-answer {
@@ -384,9 +425,9 @@
     font-size: 1.1rem;
     color: #ffffff;
     max-width: 900px;
+    line-height: 1.5;
   }
 
-  /* bottom cta */
   .bottom-cta {
     padding: 10px 0 70px;
     text-align: center;
@@ -401,8 +442,6 @@
     margin: 0 auto;
   }
 
-  /* footer */
-
   .site-footer {
     padding: 40px 0 60px;
     color: var(--text-grey);
@@ -412,6 +451,11 @@
     display: inline-block;
     margin-bottom: 25px;
     font-size: 1rem;
+    color: var(--text-grey);
+  }
+
+  .footer-contact:hover {
+    text-decoration: underline;
   }
 
   .footer-links {
@@ -430,13 +474,28 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    border: 1px solid #757575;
+    border: 1px solid #808080;
     background: #000;
     color: #fff;
-    padding: 8px 14px;
-    border-radius: 3px;
+    padding: 9px 12px 9px 14px;
+    border-radius: 4px;
     font-size: 0.9rem;
+    line-height: 1;
     margin-bottom: 20px;
+    cursor: pointer;
+  }
+
+  .lang-select i.fa-globe {
+    font-size: 0.95rem;
+  }
+
+  .lang-select:hover {
+    border-color: #ffffff;
+  }
+
+  .lang-select .lang-caret {
+    font-size: 0.7rem;
+    margin-left: 2px;
   }
 
   .footer-region {
@@ -449,14 +508,20 @@
     color: #737373;
   }
 
+  .footer-recaptcha a {
+    color: #737373;
+    text-decoration: underline;
+  }
 
-  /* responsive */
    @media (max-width: 900px) {
     .reasons-grid {
       grid-template-columns: repeat(2, 1fr);
     }
     .footer-links {
       grid-template-columns: repeat(2, 1fr);
+    }
+    .trending-card {
+      flex-basis: calc((100% - (2 * 6px)) / 2.5);
     }
   }
 
@@ -491,23 +556,11 @@
     .footer-links {
       grid-template-columns: 1fr 1fr;
     }
-    .trending-card .rank {
-      font-size: 5.5rem;
-      margin-right: -22px;
-    }
-    .trending-card .poster {
-      width: 120px;
-      height: 168px;
+    .trending-card {
+      flex-basis: calc((100% - (1 * 6px)) / 1.5);
     }
 }
 
-/* ============================================================
-   FEATURE 1: SLIDER WRAPPER + NAV ARROW
-   The wrapper positions the arrow absolutely over the right edge
-   of the track. The rank numbers stay locked to their card
-   because each .trending-card is a single flex item that scrolls
-   as one unit — the number never detaches from its poster.
-============================================================ */
 .trending-slider-wrapper {
   position: relative;
 }
@@ -537,8 +590,6 @@
   transform: translateY(-50%) scale(1.08);
 }
 
-/* Fade the right edge of the track so cards don't feel like they
-   cut off abruptly under the arrow */
 .trending-slider-wrapper::after {
   content: "";
   position: absolute;
@@ -552,16 +603,13 @@
 
 @media (max-width: 640px) {
   .slider-arrow {
-    display: none; /* rely on native touch-scroll on small screens */
+    display: none;
   }
   .trending-slider-wrapper::after {
     display: none;
   }
 }
 
-/* ============================================================
-   FEATURE 2: CARD HOVER — SCALE + GLOW
-============================================================ */
 .trending-card {
   cursor: pointer;
 }
@@ -571,20 +619,18 @@
   border: 1px solid transparent;
 }
 
-.trending-card:hover .poster {
+.trending-card:hover .poster  {
   transform: scale(1.05);
   box-shadow: 0 10px 28px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(255, 255, 255, 0.15);
   border-color: rgba(255, 255, 255, 0.25);
 }
 
 .trending-card:hover .rank {
-  -webkit-text-stroke-color: #e50914;
+    transform: scale(1.05);
+  -webkit-text-stroke-color:  white;
   transition: -webkit-text-stroke-color 0.3s ease;
 }
 
-/* ============================================================
-   FEATURE 3: DETAIL MODAL + BACKDROP
-============================================================ */
 .modal-overlay {
   display: none;
   position: fixed;
@@ -639,14 +685,11 @@
   background: rgba(0, 0, 0, 0.9);
 }
 
-/* Internal scroll area — this is what scrolls, not the whole modal,
-   so the close button can stay fixed in the corner */
 .modal-scroll {
   max-height: 85vh;
   overflow-y: auto;
 }
 
-/* Custom slim scrollbar for the modal content */
 .modal-scroll::-webkit-scrollbar {
   width: 8px;
 }
@@ -674,7 +717,6 @@
   background-color: #1a1a1a;
 }
 
-/* Cinematic fade from the banner image into the dark modal body */
 .modal-banner-fade {
   position: absolute;
   inset: 0;
@@ -702,7 +744,7 @@
 }
 
 .modal-tags .tag-year {
-  color: #46d369; /* Netflix-style "match/new" green accent */
+  color: #46d369;
   font-weight: 700;
 }
 
@@ -728,7 +770,6 @@
   font-size: 1.1rem;
 }
 
-/* Prevent background scroll while the modal is open */
 body.modal-open {
   overflow: hidden;
 }
