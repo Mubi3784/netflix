@@ -47,7 +47,7 @@
     position: relative;
     min-height: 640px;
     background-image:
-      linear-gradient(to bottom, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.25) 28%, rgba(0,0,0,0.35) 55%, rgba(0,0,0,0.85) 82%, #000000 100%),
+      linear-gradient(to bottom, rgba(0,0,0,0.65) 10%, rgba(0,0,0,0.25) 28%, rgba(0,0,0,0.35) 55%, rgba(0,0,0,0) 82%, #000000 100%),
       url("./src/netflix-bg");
     background-size: cover;
     background-position: center top;
@@ -75,30 +75,33 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 22px 45px 0;
+      margin-left: 8.9rem;
+    width: 78vw;
+     
+
   }
 
-  .logo {
-    color: var(--netflix-red);
-    font-size: 2.1rem;
-    font-weight: 800;
-    letter-spacing: -1px;
-    text-transform: uppercase;
-    line-height: 1;
+  .logo img {
+     
+    height: 6.2rem;
+     
+
+    
+    
   }
 
   .btn-signin {
     background-color: var(--netflix-red);
     color: #ffffff;
-    height: 3rem;
-    width: 6rem;
-    font-weight: 600;
-    font-size: 0.95rem;
+    height: 2.2rem;
+    width: 5rem;
+    font-weight: 500;
+    font-size: 14px;
     padding: 7px 17px;
-    border-radius: 10px;
+    border-radius: 5px;
     border: none;
     cursor: pointer;
-    line-height: 1.4;
+    line-height: 14px;
   }
 
   .btn-signin:hover {
@@ -117,24 +120,29 @@
   }
 
   .hero-content h1 {
-    font-size: 3rem;
-    font-weight: 700;
+    font-size: 56px;
+    font-weight: 780;
     max-width: 700px;
-    line-height: 1.15;
+    line-height:70px;
     margin-bottom: 18px;
     letter-spacing: -0.3px;
+    margin-top: 20px;
+    font-family: "Netflix Sans", "Helvetica Neue", "Segoe UI", Roboto, Ubuntu, sans-serif;
   }
 
   .hero-subtitle {
-    font-size: 1.4rem;
-    font-weight: 400;
+    font-size: 22px;
+    font-weight: 500;
     margin-bottom: 28px;
-    line-height: 1.3;
+    line-height: normal;
+    font-family: "Netflix Sans", "Helvetica Neue", "Segoe UI", Roboto, Ubuntu, sans-serif;
   }
 
   .hero-cta-label {
-    font-size: 1.1rem;
+    font-size: 16px;
     margin-bottom: 18px;
+    line-height: 24px;
+    font-weight: 500;
 }
 
   .email-form {
@@ -148,9 +156,9 @@
 
   .email-form input[type="email"] {
     flex: 1 1 320px;
-    min-width: 240px;
-    padding: 16px 14px;
-    background: rgba(0, 0, 0, 0.55);
+    max-width: 370px;
+    padding: 18px 18px;
+    background: rgba(34, 33, 33, 0.76);
     border: 1px solid #8c8c8c;
     border-radius: 3px;
     color: #ffffff;
@@ -158,14 +166,17 @@
   }
 
   .email-form input[type="email"]::placeholder {
-    color: #8c8c8c;
+    color: #b4b3b3;
+    font-weight: 400;
+    line-height: 24px;
+    font-size: 16px;
   }
 
   .btn-getstarted {
     background-color: var(--netflix-red);
     color: #fff;
     font-weight: 700;
-    font-size: 1.3rem;
+    font-size: 24px;
     padding: 12px 24px;
     border-radius: 3px;
     border: none;
@@ -174,6 +185,7 @@
     gap: 8px;
     cursor: pointer;
     flex: 0 0 auto;
+    width: 13rem;
   }
 
   .btn-getstarted:hover {
@@ -182,8 +194,10 @@
   }
 
   .btn-getstarted .arrow {
-    font-size: 1.3rem;
+    font-size: 35px;
     line-height: 1;
+    font-weight: 300;
+    padding-left: 0.4rem;
   }
 
   .curve-separator {
@@ -207,7 +221,7 @@
     width: 70%;
     max-width: 900px;
     height: 34px;
-    background: radial-gradient(ellipse at center, rgba(160, 190, 255, 0.35) 0%, rgba(120, 150, 255, 0.16) 45%, rgba(0,0,0,0) 75%);
+    background: radial-gradient(ellipse at center, rgba(160, 190, 255, 0.35) 0%, rgba(120, 150, 255, 0.16) 45%, rgba(0,0,0,0) 85%);
     filter: blur(6px);
     pointer-events: none;
     z-index: 0;
@@ -224,6 +238,8 @@
   }
 
   .trending {
+    
+    
     padding: 10px 0 70px;
   }
 
@@ -231,15 +247,20 @@
     font-size: 1.7rem;
     font-weight: 700;
     margin-bottom: 22px;
+    margin-left: 3rem;
   }
 
   .trending-track {
+ 
+    width: 77vw;
+
+    margin-left: 2rem;
     display: flex;
     gap: 60px;
     overflow-x: auto;
     overflow-y: visible;
-    padding: 10px 0 26px 42px;
-    margin-left: -42px;
+    padding: 5px 0 26px 42px;
+    
     scrollbar-width: none;
   }
 
@@ -433,19 +454,78 @@
   .bottom-cta {
     padding: 10px 0 70px;
     text-align: center;
+    overflow: hidden;
+     
   }
-
+  
   .bottom-cta p {
     font-size: 1.1rem;
     margin-bottom: 20px;
+    font-weight: 400;
+    line-height: 24px;
+  }
+  
+  .bottom-cta .footer-email-form {
+    margin: 0 auto;
+    
+    
+     
   }
 
-  .bottom-cta .email-form {
-    margin: 0 auto;
+  .bottom-cta .footer-email-form input[type="email"]{
+     
+      flex: 1 1 320px;
+    width: 580px;
+    padding: 18px 18px;
+    background: rgba(34, 33, 33, 0.76);
+    border: 1px solid #8c8c8c;
+    border-radius: 3px;
+    color: #ffffff;
+    font-size: 1rem;
   }
+
+
+  .footer-email-form input[type="email"]::placeholder {
+    color: #b4b3b3;
+    font-weight: 400;
+    line-height: 24px;
+    font-size: 16px;
+    
+  }
+
+  
+  .footer-btn-getstarted {
+    background-color: var(--netflix-red);
+    color: #fff;
+    font-weight: 700;
+    font-size: 24px;
+    padding: 12px 24px;
+    margin-left: 0.5rem;
+    border-radius: 7px;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    flex: 0 0 auto;
+    width: 13rem;
+  }
+
+  .footer-btn-getstarted:hover {
+    background-color: #c40812;
+    text-decoration: none;
+  }
+
+  .footer-btn-getstarted .arrow {
+    font-size: 35px;
+    line-height: 1;
+    font-weight: 300;
+    padding-left: 0.4rem;
+  }
+
 
   .site-footer {
-    padding: 40px 0 60px;
+    padding: 10px 7rem 60px;
     color: var(--text-grey);
   }
 
@@ -570,15 +650,16 @@
 .slider-arrow {
   position: absolute;
   top: 50%;
-  right: 0;
+  right: 2rem;
   transform: translateY(-50%);
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
+  width: 25px;
+  height: 120px;
+  border-radius: 15%;
   border: none;
   background: rgba(20, 20, 20, 0.85);
   color: #ffffff;
-  font-size: 1.1rem;
+  font-size: 1rem;
+  font-weight: 100;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -588,7 +669,7 @@
 }
 
 .slider-arrow:hover {
-  background: rgba(0, 0, 0, 0.95);
+  background: rgba(65, 63, 63, 0.95);
   transform: translateY(-50%) scale(1.08);
 }
 
@@ -713,10 +794,11 @@
 .modal-banner {
   position: relative;
   width: 100%;
-  height: 260px;
-  background-size: cover;
-  background-position: center;
+  height: 380px;
+  background-size: contain;
+  background-position: center top;
   background-color: #1a1a1a;
+  background-repeat: no-repeat;
 }
 
 .modal-banner-fade {

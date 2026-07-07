@@ -37,16 +37,6 @@ const movies = [
   },
   {
     rank: 4,
-    title: "Tech You a Lesson",
-    poster: "./src/techYou",
-    banner: "./src/techYou",
-    year: 2025,
-    rating: "U/A 16+",
-    genres: ["Drama", "Thriller"],
-    synopsis: "A rising tech founder learns the hard way that ambition without ethics comes at a steep price, in this gripping look at the underbelly of the startup world."
-  },
-  {
-    rank: 5,
     title: "Dhurandar",
     poster: "./src/dhurandar",
     banner: "./src/dhurandar",
@@ -54,6 +44,16 @@ const movies = [
     rating: "U/A 16+",
     genres: ["Action", "Drama"],
     synopsis: "An elite operative goes rogue after a mission gone wrong, racing against time to clear his name while uncovering a conspiracy that reaches the top."
+  },
+  {
+    rank: 5,
+    title: "Tech You a Lesson",
+    poster: "./src/techYou",
+    banner: "./src/techYou",
+    year: 2025,
+    rating: "U/A 16+",
+    genres: ["Drama", "Thriller"],
+    synopsis: "A rising tech founder learns the hard way that ambition without ethics comes at a steep price, in this gripping look at the underbelly of the startup world."
   },
   {
     rank: 6,
