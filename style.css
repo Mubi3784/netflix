@@ -500,3 +500,247 @@
       height: 168px;
     }
 }
+
+/* ============================================================
+   FEATURE 1: SLIDER WRAPPER + NAV ARROW
+   The wrapper positions the arrow absolutely over the right edge
+   of the track. The rank numbers stay locked to their card
+   because each .trending-card is a single flex item that scrolls
+   as one unit — the number never detaches from its poster.
+============================================================ */
+.trending-slider-wrapper {
+  position: relative;
+}
+
+.slider-arrow {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(20, 20, 20, 0.85);
+  color: #ffffff;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 5;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.slider-arrow:hover {
+  background: rgba(0, 0, 0, 0.95);
+  transform: translateY(-50%) scale(1.08);
+}
+
+/* Fade the right edge of the track so cards don't feel like they
+   cut off abruptly under the arrow */
+.trending-slider-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 10px;
+  width: 70px;
+  background: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.85) 90%);
+  pointer-events: none;
+}
+
+@media (max-width: 640px) {
+  .slider-arrow {
+    display: none; /* rely on native touch-scroll on small screens */
+  }
+  .trending-slider-wrapper::after {
+    display: none;
+  }
+}
+
+/* ============================================================
+   FEATURE 2: CARD HOVER — SCALE + GLOW
+============================================================ */
+.trending-card {
+  cursor: pointer;
+}
+
+.trending-card .poster {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.trending-card:hover .poster {
+  transform: scale(1.05);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.trending-card:hover .rank {
+  -webkit-text-stroke-color: #e50914;
+  transition: -webkit-text-stroke-color 0.3s ease;
+}
+
+/* ============================================================
+   FEATURE 3: DETAIL MODAL + BACKDROP
+============================================================ */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 999;
+}
+
+.modal-overlay.is-open {
+  display: block;
+}
+
+.movie-modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  width: min(700px, 90vw);
+  max-height: 85vh;
+  background: var(--bg-dark);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+.movie-modal.is-open {
+  display: block;
+}
+
+.modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 3;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(20, 20, 20, 0.7);
+  color: #ffffff;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-close:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+/* Internal scroll area — this is what scrolls, not the whole modal,
+   so the close button can stay fixed in the corner */
+.modal-scroll {
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
+/* Custom slim scrollbar for the modal content */
+.modal-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.modal-scroll::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.25);
+  border-radius: 4px;
+}
+
+.modal-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
+}
+
+.modal-banner {
+  position: relative;
+  width: 100%;
+  height: 260px;
+  background-size: cover;
+  background-position: center;
+  background-color: #1a1a1a;
+}
+
+/* Cinematic fade from the banner image into the dark modal body */
+.modal-banner-fade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(20,20,20,0) 40%, var(--bg-dark) 100%);
+}
+
+.modal-body {
+  padding: 4px 32px 36px;
+}
+
+.modal-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 14px;
+}
+
+.modal-tags {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 18px;
+  font-size: 0.95rem;
+  color: var(--text-light-grey);
+}
+
+.modal-tags .tag-year {
+  color: #46d369; /* Netflix-style "match/new" green accent */
+  font-weight: 700;
+}
+
+.modal-tags .tag-rating {
+  border: 1px solid #808080;
+  padding: 1px 6px;
+  font-size: 0.8rem;
+  border-radius: 2px;
+}
+
+.modal-tags .tag-dot {
+  color: var(--text-grey);
+}
+
+.modal-synopsis {
+  color: var(--text-light-grey);
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 26px;
+}
+
+.modal-cta {
+  font-size: 1.1rem;
+}
+
+/* Prevent background scroll while the modal is open */
+body.modal-open {
+  overflow: hidden;
+}
+
+@media (max-width: 640px) {
+  .modal-banner {
+    height: 180px;
+  }
+  .modal-body {
+    padding: 4px 20px 28px;
+  }
+  .modal-title {
+    font-size: 1.4rem;
+  }
+}

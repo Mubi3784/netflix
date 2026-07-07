@@ -47,34 +47,18 @@
     <section class="trending">
       <div class="container">
         <h2 class="section-title">Trending Now</h2>
-        <div class="trending-track">
 
-          <article class="trending-card">
-            <span class="rank">1</span>
-            <div class="poster" style="background-image:url(./src/trending/Bhooth-Bangla1-1.jpeg);"></div>
-          </article>
+        <!-- Slider wrapper positions the nav arrow relative to the track -->
+        <div class="trending-slider-wrapper">
+          <div class="trending-track" id="trendingTrack">
+            <!-- Cards are rendered dynamically by script.js from the `movies` array -->
+          </div>
 
-          <article class="trending-card">
-            <span class="rank">2</span>
-            <div class="poster" style="background-image:url(./src/trending/lockupp.jpeg );"></div>
-          </article>
-
-          <article class="trending-card">
-            <span class="rank">3</span>
-            <div class="poster" style="background-image:url(./src/trending/avatar.jpeg);"></div>
-          </article>
-
-          <article class="trending-card">
-            <span class="rank">4</span>
-            <div class="poster" style="background-image:url(./src/trending/tech\ you\ \ a\ lesson.jpeg);"></div>
-          </article>
-
-          <article class="trending-card">
-            <span class="rank">5</span>
-            <div class="poster" style="background-image:url(./src/trending/dhurandar.jpeg);"></div>
-          </article>
-
+          <button class="slider-arrow" id="sliderArrowRight" type="button" aria-label="Scroll trending list right">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
         </div>
+
       </div>
     </section>
 
@@ -230,5 +214,36 @@
     </div>
   </footer>
 
+  <!-- ============================================================
+       DETAIL MODAL
+       Hidden by default. Populated dynamically by script.js when a
+       trending card is clicked. One reusable markup block avoids
+       repeating modal HTML for every movie (DRY).
+  ============================================================ -->
+  <div class="modal-overlay" id="modalOverlay"></div>
+
+  <div class="movie-modal" id="movieModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="modal-close" id="modalClose" type="button" aria-label="Close">&times;</button>
+
+    <div class="modal-scroll">
+      <div class="modal-banner" id="modalBanner">
+        <div class="modal-banner-fade"></div>
+      </div>
+
+      <div class="modal-body">
+        <h2 class="modal-title" id="modalTitle"></h2>
+
+        <div class="modal-tags" id="modalTags"></div>
+
+        <p class="modal-synopsis" id="modalSynopsis"></p>
+
+        <button class="btn-getstarted modal-cta" type="button">
+          Get Started <span class="arrow">&#8250;</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
