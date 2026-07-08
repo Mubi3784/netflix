@@ -212,30 +212,51 @@
   /* Soft ambient glow sitting just under the curve — a wide, low
      radial wash rather than a tight drop-shadow, so it reads like
      light bleeding out from behind the arc. */
-  .curve-separator::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    top: 8px;
-    transform: translateX(-50%);
-    width: 70%;
-    max-width: 900px;
-    height: 34px;
-    background: radial-gradient(ellipse at center, rgba(160, 190, 255, 0.35) 0%, rgba(120, 150, 255, 0.16) 45%, rgba(0,0,0,0) 85%);
-    filter: blur(6px);
-    pointer-events: none;
-    z-index: 0;
-  }
+  .hero-curve-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -20px;
+  height: 120px;
+  pointer-events: none;
+  z-index: 3;
+}
 
-  .curve-separator svg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    filter: drop-shadow(0 4px 8px rgba(255, 255, 255, 0.25));
-  }
+.hero-dark-fade {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 160px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.4) 35%,
+    rgba(0, 0, 0, 0.85) 70%,
+    var(--bg-black) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-center-glow {
+  position: absolute;
+  left: 50%;
+  top: 36rem;
+  bottom: 30px;
+  transform: translateX(-50%);
+  width: 900px;
+  height: 80px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(20, 19, 92, 0.986) 0,
+    rgba(3, 4, 32, 0.438) 45%,
+    rgba(0, 0, 0, 0.904) 75%
+  );
+  filter: blur(10px);
+  z-index: 2;
+  pointer-events: none;
+}
 
   .trending {
     
@@ -306,67 +327,82 @@
     object-fit: cover;
     box-shadow: 0 6px 16px rgba(0,0,0,0.6);
   }
+ 
+  /* reason */
+  .reasonSection {
+  background-color: black;
+  color: white;
+  /* border: 2px solid rebeccapurple; */
+  padding: 4rem 2rem;
+}
 
-  .more-reasons {
-    padding: 10px 0 70px;
-  }
+.reasonSection h2 {
+  font-size: 2.5rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+  /* border: 2px solid red; */
+  margin-left: 2rem;
+}
+.reasonCardContainer{
+/*  
+  border: 2px solid gray; */
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  height: 55vh;
+  margin-left: 2rem;
+  overflow: hidden;
 
-  .reasons-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 18px;
-  }
+}
 
-  .reason-card {
-    position: relative;
-    min-height: 280px;
-    background: linear-gradient(160deg, var(--card-purple-start) 25%, var(--card-purple-end) 100%);
-    border-radius: 8px;
-    padding: 28px 24px;
-    overflow: hidden;
-  }
+.reasonCardContainerContent {
+  /* border: 2px solid aqua; */
+  width: 235px;
+  box-sizing: border-box;
+  display: inline-flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 330px;
+  justify-content: normal;
+  margin-left: 0;
+  margin-top: -16px;
+  padding: 24px 16px 128px 16px;
+  text-size-adjust: 100%;
+  position: relative;
+  border-radius: 10%;
+  top: 20px;
+  background: linear-gradient(to bottom right,rgb(26, 30, 48), rgb(26, 30, 48),rgb(26, 30, 48),rgb(151, 16, 129));
+   
+}
+.reasonCardContainerContent h3 {
+  box-sizing: border-box;
+  display: block;
+  font-size: 24px;
+  font-weight: 500;
+  margin: -1rem 0 0 0;
+  text-size-adjust: 100%;
+}
+.reasonCardContainerContent p {
+  display: block;
+  font-size: 16px;
+  /* border: 2px solid red; */
+  font-weight: 400;
+  text-size-adjust: 100%;
+  margin: 1rem 0 0 0;
+}
+.reasonCardIcon img{
+  
+  width: 130px;
+  height: 130px;
+}
+.reasonCardIcon{
+  position: absolute;
+  top: 12rem;
+  left: 5rem;
 
-  /* Soft glow blooming from the bottom-right corner, behind the icon,
-     so the gradient reads as "lit" rather than a flat diagonal fill. */
-  .reason-card::after {
-    content: "";
-    position: absolute;
-    right: -30px;
-    bottom: -30px;
-    width: 160px;
-    height: 160px;
-    background: radial-gradient(circle, rgba(242, 86, 139, 0.35) 0%, rgba(242, 86, 139, 0) 70%);
-    pointer-events: none;
-  }
+}
 
-  .reason-card h3 {
-    font-size: 1.35rem;
-    font-weight: 700;
-    margin-bottom: 12px;
-    max-width: 85%;
-    line-height: 1.25;
-  }
-
-  .reason-card p {
-    color: var(--text-light-grey);
-    font-size: 0.95rem;
-    max-width: 90%;
-    line-height: 1.45;
-  }
-
-  .reason-icon {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1;
-    width: 56px;
-    height: 56px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.9rem;
-    filter: drop-shadow(0 0 10px rgba(242, 86, 139, 0.55));
-  }
 
 .faq {
     padding: 10px 0 70px;

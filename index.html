@@ -28,16 +28,28 @@
         </button>
       </form>
     </div>
+
+    
  </header>
 
+  <div class="hero-center-glow"></div>
 
-
- <!-- red curverd seperator -->
-<div class="curve-separator" aria-hidden="true">
-    <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
-      <path d="M0,55 Q600,-25 1200,55" fill="none" stroke="#e50914" stroke-width="3"/>
+    <svg class="hero-curve-line" viewBox="0 0 1400 120" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#1a1a2e" stop-opacity="0"/>
+          <stop offset="15%" stop-color="#e50914" stop-opacity="0.9"/>
+          <stop offset="50%" stop-color="#ff2050" stop-opacity="1"/>
+          <stop offset="85%" stop-color="#e50914" stop-opacity="0.9"/>
+          <stop offset="100%" stop-color="#1a1a2e" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      <path d="M 0,90 Q 700,10 1400,90" fill="none" stroke="url(#lineGradient)" stroke-width="3"/>
     </svg>
-  </div>
+
+    <div class="hero-dark-fade"></div>
+
+             
 
 
 
@@ -65,37 +77,44 @@
 
 
     <!-- more reason  -->
-     <section class="more-reasons">
-      <div class="container">
-        <h2 class="section-title">More Reasons to Join</h2>
-        <div class="reasons-grid">
+     <section id="reason" class="reasonSection">
+        <h2>More Reason To Join </h2>
 
-          <article class="reason-card">
-            <h3>Enjoy on your TV</h3>
-            <p>Watch on Smart TVs, Playstation, Xbox, Chromecast, Apple TV, Blu-ray players, and more.</p>
-            <div class="reason-icon"><i class="fa-solid fa-tv" style="color: var(--icon-pink);"></i></div>
-          </article>
+        <div class="reasonCardContainer">
+            <div class="reasonCardContainerContent">
+                <h3>Enjoy on your TV</h3>
+                <p>Watch on Smart TVs, Playstation, Xbox, Chromecast, Apple TV, Blu-ray players, and more. </p>
+                <div class="reasonCardIcon">
+                    <img src="./assets/reasonSectionPic/WhatsApp_Image_2025-07-15_at_11.28.58_AM-removebg-preview.png"
+                        alt="">
+                </div>
+            </div>
 
-          <article class="reason-card">
-            <h3>Download your shows to watch offline</h3>
-            <p>Save your favorites easily and always have something to watch.</p>
-            <div class="reason-icon"><i class="fa-solid fa-circle-down" style="color: var(--icon-pink);"></i></div>
-          </article>
+            <div class="reasonCardContainerContent">
+                <h3>Download your shows to watch offline</h3>
+                <p>Save your favorites easily and always have something to watch. </p>
+                <div class="reasonCardIcon">
+                    <img src="./assets/reasonSectionPic/logo2.png" alt="">
+                </div>
+            </div>
 
-          <article class="reason-card">
-            <h3>Watch everywhere</h3>
-            <p>Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV.</p>
-            <div class="reason-icon"><i class="fa-solid fa-mobile-screen-button" style="color: var(--icon-pink);"></i></div>
-          </article>
 
-          <article class="reason-card">
-            <h3>Create profiles for kids</h3>
-            <p>Send kids on adventures with their favorite characters in a space made just for them — free with your membership.</p>
-            <div class="reason-icon"><i class="fa-solid fa-face-smile" style="color: var(--icon-pink);"></i></div>
-          </article>
-
+            <div class="reasonCardContainerContent">
+                <h3>Watch everywhere</h3>
+                <p>Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV. </p>
+                <div class="reasonCardIcon">
+                    <img src="./assets/reasonSectionPic/logo3-removebg-preview.png" alt="">
+                </div>
+            </div>
+            <div class="reasonCardContainerContent">
+                <h3>Create profiles for kids</h3>
+                <p>Send kids on adventures with their favorite characters in a space made just for them — free with your
+                    membership. </p>
+                <div class="reasonCardIcon">
+                    <img src="./assets/reasonSectionPic/logo_4-removebg-preview.png" alt="">
+                </div>
+            </div>
         </div>
-      </div>
     </section>
 
 
