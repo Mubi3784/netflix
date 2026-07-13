@@ -1,9 +1,4 @@
-/* ============================================================
-   MOVIE DATA
-   Single source of truth. Add/remove/edit a movie here and both
-   the trending card and its modal content update automatically —
-   no repeated markup anywhere (DRY).
-============================================================ */
+ 
 const movies = [
   {
     rank: 1,
@@ -106,15 +101,10 @@ function renderTrendingCards() {
     });
   });
 }
-
-/* ============================================================
-   FEATURE 1: SLIDER ARROW — SMOOTH SCROLL RIGHT
-============================================================ */
+ 
 function initSliderArrow() {
   sliderArrowRight.addEventListener("click", () => {
-    // Scroll by the width of one card + gap, measured live, so the
-    // "4.5 cards visible" layout keeps a consistent one-card-per-click feel
-    // at every viewport width instead of a hardcoded pixel guess.
+    
     const firstCard = trendingTrack.querySelector(".trending-card");
     const step = firstCard ? firstCard.getBoundingClientRect().width + 6 : 420;
     trendingTrack.scrollBy({
@@ -123,15 +113,11 @@ function initSliderArrow() {
     });
   });
 }
-
-/* ============================================================
-   FEATURE 3: MODAL OPEN / CLOSE + SCROLL LOCK
-============================================================ */
+ 
 function openModal(index) {
   const movie = movies[index];
   if (!movie) return;
-
-  // Populate modal content from the single data source.
+ 
   modalBanner.style.backgroundImage = `url('${movie.banner}')`;
   modalTitle.textContent = movie.title;
   modalSynopsis.textContent = movie.synopsis;
@@ -146,20 +132,17 @@ function openModal(index) {
 
   modal.classList.add("is-open");
   modalOverlay.classList.add("is-open");
-
-  // Lock the page scrollbar while the modal is open.
+ 
   document.body.classList.add("modal-open");
   document.body.style.overflow = "hidden";
-
-  // Reset modal's internal scroll position each time it opens.
+ 
   modal.querySelector(".modal-scroll").scrollTop = 0;
 }
 
 function closeModal() {
   modal.classList.remove("is-open");
   modalOverlay.classList.remove("is-open");
-
-  // Restore the main page scrollbar.
+ 
   document.body.classList.remove("modal-open");
   document.body.style.overflow = "";
 }
@@ -175,10 +158,7 @@ function initModalCloseHandlers() {
     }
   });
 }
-
-/* ============================================================
-   INIT
-============================================================ */
+ 
 document.addEventListener("DOMContentLoaded", () => {
   renderTrendingCards();
   initSliderArrow();

@@ -16,7 +16,7 @@
   }
 
   body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     background-color: var(--bg-black);
     color: #ffffff;
     line-height: 1.4;
@@ -175,7 +175,7 @@
   .btn-getstarted {
     background-color: var(--netflix-red);
     color: #fff;
-    font-weight: 700;
+    font-weight: 500;
     font-size: 24px;
     padding: 12px 24px;
     border-radius: 3px;
@@ -194,7 +194,7 @@
   }
 
   .btn-getstarted .arrow {
-    font-size: 35px;
+    font-size: 13px;
     line-height: 1;
     font-weight: 300;
     padding-left: 0.4rem;
@@ -260,7 +260,7 @@
 
   .trending {
     
-    
+     
     padding: 10px 0 70px;
   }
 
@@ -268,19 +268,19 @@
     font-size: 1.7rem;
     font-weight: 700;
     margin-bottom: 22px;
-    margin-left: 3rem;
+    margin-left: 2rem;
   }
 
   .trending-track {
- 
-    width: 77vw;
+     
+    width: 79.9vw;
 
-    margin-left: 2rem;
+    margin-left: 0;
     display: flex;
     gap: 60px;
     overflow-x: auto;
     overflow-y: visible;
-    padding: 5px 0 26px 42px;
+    padding: 1px 0 26px 42px;
     
     scrollbar-width: none;
   }
@@ -302,13 +302,13 @@
   .trending-card .rank {
     position: absolute;
     left: -0.28em;
-    bottom: -6%;
+    bottom: 10%;
     z-index: 10;
-    font-size: clamp(4.5rem, 8.5vw, 9rem);
+    font-size: clamp(2.5rem, 4vw, 5rem);
     font-weight: 800;
     line-height: 1;
     color: black;
-    -webkit-text-stroke: 3px #e5e5e5;
+    -webkit-text-stroke: 3px #dadadabe;
     text-stroke: 3px #e5e5e5;
     font-family: 'Arial Black', Helvetica, Arial, sans-serif;
     user-select: none;
@@ -337,35 +337,39 @@
 }
 
 .reasonSection h2 {
-  font-size: 2.5rem;
-  font-weight: 500;
+  font-size: 1.5rem;
+  font-weight: 600;
   margin-bottom: 2rem;
   /* border: 2px solid red; */
-  margin-left: 2rem;
+  margin-left: 5.3rem;
 }
 .reasonCardContainer{
-/*  
-  border: 2px solid gray; */
+ 
+  /* border: 2px solid gray; */
+ 
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
   flex-wrap: wrap;
+  gap: 1px  ;
   max-width: 1200px;
-  height: 55vh;
+  height: auto;
   margin-left: 2rem;
-  overflow: hidden;
+  overflow: visible;
+  width: 100vw;
 
 }
 
 .reasonCardContainerContent {
+   
   /* border: 2px solid aqua; */
-  width: 235px;
+  width: 250px;
   box-sizing: border-box;
   display: inline-flex;
   flex-direction: column;
-  flex-wrap: wrap;
-  height: 330px;
+  flex-wrap: nowrap;
+  height: 350px;
   justify-content: normal;
-  margin-left: 0;
+  margin-left: 3rem;
   margin-top: -16px;
   padding: 24px 16px 128px 16px;
   text-size-adjust: 100%;
@@ -379,7 +383,7 @@
   box-sizing: border-box;
   display: block;
   font-size: 24px;
-  font-weight: 500;
+  font-weight: 700;
   margin: -1rem 0 0 0;
   text-size-adjust: 100%;
 }
@@ -387,9 +391,10 @@
   display: block;
   font-size: 16px;
   /* border: 2px solid red; */
-  font-weight: 400;
+  font-weight: 500;
   text-size-adjust: 100%;
   margin: 1rem 0 0 0;
+  color: #a19e9ee1;
 }
 .reasonCardIcon img{
   
@@ -406,18 +411,21 @@
 
 .faq {
     padding: 10px 0 70px;
+    
   }
 
-  .faq-list {
+  .faq-list { 
     display: flex;
     flex-direction: column;
-    gap: 2px;
-    max-width: 1250px;
+    gap: 10px;
+    max-width: 1040px;
+    margin-left: 2rem;
   }
-
-  .faq-item {
+  
+  .faq-item { 
     background-color: #2d2d2d;
     border-radius: 2px;
+     
   }
 
   .faq-item summary {
@@ -502,7 +510,13 @@
   }
   
   .bottom-cta .footer-email-form {
-    margin: 0 auto;
+      display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  max-width: 620px;
     
     
      
@@ -533,7 +547,7 @@
   .footer-btn-getstarted {
     background-color: var(--netflix-red);
     color: #fff;
-    font-weight: 700;
+    font-weight: 500;
     font-size: 24px;
     padding: 12px 24px;
     margin-left: 0.5rem;
@@ -553,7 +567,7 @@
   }
 
   .footer-btn-getstarted .arrow {
-    font-size: 35px;
+    font-size: 13px;
     line-height: 1;
     font-weight: 300;
     padding-left: 0.4rem;
@@ -618,7 +632,8 @@
 
   .footer-region {
     font-size: 0.9rem;
-    margin-bottom: 6px;
+    margin-bottom: 35px;
+    margin-top: 10px;
   }
 
   .footer-recaptcha {
@@ -680,7 +695,9 @@
 }
 
 .trending-slider-wrapper {
+   
   position: relative;
+  
 }
 
 .slider-arrow {
@@ -894,14 +911,210 @@ body.modal-open {
   overflow: hidden;
 }
 
-@media (max-width: 640px) {
-  .modal-banner {
-    height: 180px;
+@media (max-width: 1024px) {
+  .site-header {
+    margin-left: 4rem;
+    width: 90vw;
   }
-  .modal-body {
-    padding: 4px 20px 28px;
+ 
+  .hero-center-glow {
+    width: 90vw;
+    max-width: 900px;
   }
-  .modal-title {
-    font-size: 1.4rem;
+ 
+  .trending-track {
+    width: 90vw;
+    margin-left: 1rem;
+    padding-left: 24px;
+    gap: 30px;
+  }
+ 
+  .reasonCardContainer {
+    justify-content: center;
+    gap: 24px;
+    height: auto;
+  }
+ 
+  .site-footer {
+    padding: 10px 3rem 60px;
   }
 }
+ 
+/* ---------- Tablet portrait / large phone ---------- */
+@media (max-width: 900px) {
+  .site-header {
+    margin-left: 2rem;
+    width: 92vw;
+  }
+ 
+  .logo img {
+    height: 4.6rem;
+  }
+ 
+  .hero-content h1 {
+    font-size: 2.6rem;
+    line-height: 1.25;
+  }
+ 
+  .hero-subtitle {
+    font-size: 1.15rem;
+  }
+ 
+  .section-title {
+    margin-left: 1.5rem;
+  }
+ 
+  .reasonSection h2 {
+    margin-left: 1rem;
+    font-size: 2rem;
+  }
+ 
+  .reasonCardContainer {
+    margin-left: 0;
+  }
+ 
+  .bottom-cta .footer-email-form input[type="email"] {
+    width: 100%;
+    max-width: 420px;
+  }
+ 
+  .bottom-cta .footer-email-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 0 20px;
+  }
+}
+ 
+/* ---------- Mobile ---------- */
+@media (max-width: 640px) {
+  .site-header {
+    margin-left: 0;
+    width: 100%;
+    padding: 18px 20px 0;
+  }
+ 
+  .logo img {
+    height: 3.4rem;
+  }
+ 
+  .hero-center-glow {
+    width: 90vw;
+    height: 60px;
+    top: 30rem;
+  }
+ 
+  .hero-cta-label {
+    font-size: 0.9rem;
+    padding: 0 10px;
+  }
+ 
+  .section-title {
+    margin-left: 1rem;
+    font-size: 1.4rem;
+  }
+ 
+  .trending-track {
+    width: 100%;
+    margin-left: 0;
+    padding: 5px 0 20px 16px;
+    gap: 16px;
+  }
+ 
+  .reasonSection {
+    padding: 3rem 1rem;
+  }
+ 
+  .reasonSection h2 {
+    margin-left: 0.5rem;
+    font-size: 1.6rem;
+  }
+ 
+  .reasonCardContainer {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    margin-left: 0;
+  }
+ 
+  .reasonCardContainerContent {
+    width: 90%;
+    max-width: 320px;
+    height: auto;
+    min-height: 260px;
+    padding: 24px 16px 100px 16px;
+    top: 0;
+    margin-top: 0;
+  }
+ 
+  .reasonCardIcon {
+    top: auto;
+    bottom: 1.5rem;
+    left: 1.5rem;
+  }
+ 
+  .reasonCardIcon img {
+    width: 100px;
+    height: 100px;
+  }
+ 
+  .faq-item summary {
+    padding: 16px 18px;
+    font-size: 1.05rem;
+  }
+ 
+  .faq-answer {
+    padding: 0 18px 20px;
+    font-size: 1rem;
+  }
+ 
+  .bottom-cta .footer-email-form input[type="email"] {
+    width: 100%;
+    max-width: none;
+  }
+ 
+  .footer-btn-getstarted,
+  .btn-getstarted {
+    width: 100%;
+    justify-content: center;
+  }
+ 
+  .site-footer {
+    padding: 10px 1.5rem 40px;
+  }
+ 
+  .footer-links {
+    max-width: 100%;
+  }
+ 
+  .movie-modal {
+    width: 94vw;
+  }
+}
+ 
+/* ---------- Small phones ---------- */
+@media (max-width: 420px) {
+  .hero-content h1 {
+    font-size: 1.5rem;
+  }
+ 
+  .hero-subtitle {
+    font-size: 0.95rem;
+  }
+ 
+  .trending-card {
+    flex-basis: calc((100% - (1 * 16px)) / 1.15);
+  }
+ 
+  .modal-title {
+    font-size: 1.2rem;
+  }
+ 
+  .footer-links {
+    grid-template-columns: 1fr;
+  }
+}
+ 
+
+

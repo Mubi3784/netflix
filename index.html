@@ -6,6 +6,9 @@
     <title>Netflix Clone</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
      
 </head>
 <body>
@@ -24,7 +27,7 @@
          <form class="email-form" action="#" onsubmit="return false;">
         <input type="email" placeholder="Email address" aria-label="Email address" required>
         <button class="btn-getstarted" type="submit">
-          Get Started <span class="arrow">&#8250;</span>
+          Get Started <span class="arrow"><i class="fa-solid fa-greater-than"></i></span>
         </button>
       </form>
     </div>
@@ -190,7 +193,7 @@
         <form class="footer-email-form" action="#" onsubmit="return false;">
           <input type="email" placeholder="Email address" aria-label="Email address" required>
           <button class="footer-btn-getstarted" type="submit">
-            Get Started <span class="arrow">&#8250;</span>
+            Get Started <span class="arrow"> <i class="fa-solid fa-greater-than"></i></span>
           </button>
         </form>
       </div>
@@ -228,7 +231,7 @@
       </nav>
 
       <button class="lang-select" type="button">
-        <i class="fa-solid fa-globe" aria-hidden="true"></i>
+        <i class="fa-solid fa-language"></i>
         <span>English</span>
         <i class="fa-solid fa-chevron-down lang-caret" aria-hidden="true"></i>
       </button>
@@ -238,12 +241,7 @@
     </div>
   </footer>
 
-  <!-- ============================================================
-       DETAIL MODAL
-       Hidden by default. Populated dynamically by script.js when a
-       trending card is clicked. One reusable markup block avoids
-       repeating modal HTML for every movie (DRY).
-  ============================================================ -->
+  
   <div class="modal-overlay" id="modalOverlay"></div>
 
   <div class="movie-modal" id="movieModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
