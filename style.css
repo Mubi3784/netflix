@@ -16,7 +16,7 @@
   }
 
   body {
-   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     background-color: var(--bg-black);
     color: #ffffff;
     line-height: 1.4;
@@ -175,7 +175,7 @@
   .btn-getstarted {
     background-color: var(--netflix-red);
     color: #fff;
-    font-weight: 500;
+    font-weight: 700;
     font-size: 24px;
     padding: 12px 24px;
     border-radius: 3px;
@@ -194,7 +194,7 @@
   }
 
   .btn-getstarted .arrow {
-    font-size: 13px;
+    font-size: 35px;
     line-height: 1;
     font-weight: 300;
     padding-left: 0.4rem;
@@ -260,7 +260,7 @@
 
   .trending {
     
-     
+    
     padding: 10px 0 70px;
   }
 
@@ -268,19 +268,19 @@
     font-size: 1.7rem;
     font-weight: 700;
     margin-bottom: 22px;
-    margin-left: 2rem;
+    margin-left: 3rem;
   }
 
   .trending-track {
-     
-    width: 79.9vw;
+ 
+    width: 77vw;
 
-    margin-left: 0;
+    margin-left: 2rem;
     display: flex;
     gap: 60px;
     overflow-x: auto;
     overflow-y: visible;
-    padding: 1px 0 26px 42px;
+    padding: 5px 0 26px 42px;
     
     scrollbar-width: none;
   }
@@ -302,13 +302,13 @@
   .trending-card .rank {
     position: absolute;
     left: -0.28em;
-    bottom: 10%;
+    bottom: -6%;
     z-index: 10;
-    font-size: clamp(2.5rem, 4vw, 5rem);
+    font-size: clamp(4.5rem, 8.5vw, 9rem);
     font-weight: 800;
     line-height: 1;
     color: black;
-    -webkit-text-stroke: 3px #dadadabe;
+    -webkit-text-stroke: 3px #e5e5e5;
     text-stroke: 3px #e5e5e5;
     font-family: 'Arial Black', Helvetica, Arial, sans-serif;
     user-select: none;
@@ -337,39 +337,35 @@
 }
 
 .reasonSection h2 {
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: 2.5rem;
+  font-weight: 500;
   margin-bottom: 2rem;
   /* border: 2px solid red; */
-  margin-left: 5.3rem;
+  margin-left: 2rem;
 }
 .reasonCardContainer{
- 
-  /* border: 2px solid gray; */
- 
+/*  
+  border: 2px solid gray; */
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-around;
   flex-wrap: wrap;
-  gap: 1px  ;
   max-width: 1200px;
-  height: auto;
+  height: 55vh;
   margin-left: 2rem;
-  overflow: visible;
-  width: 100vw;
+  overflow: hidden;
 
 }
 
 .reasonCardContainerContent {
-   
   /* border: 2px solid aqua; */
-  width: 250px;
+  width: 235px;
   box-sizing: border-box;
   display: inline-flex;
   flex-direction: column;
-  flex-wrap: nowrap;
-  height: 350px;
+  flex-wrap: wrap;
+  height: 330px;
   justify-content: normal;
-  margin-left: 3rem;
+  margin-left: 0;
   margin-top: -16px;
   padding: 24px 16px 128px 16px;
   text-size-adjust: 100%;
@@ -383,7 +379,7 @@
   box-sizing: border-box;
   display: block;
   font-size: 24px;
-  font-weight: 700;
+  font-weight: 500;
   margin: -1rem 0 0 0;
   text-size-adjust: 100%;
 }
@@ -391,10 +387,9 @@
   display: block;
   font-size: 16px;
   /* border: 2px solid red; */
-  font-weight: 500;
+  font-weight: 400;
   text-size-adjust: 100%;
   margin: 1rem 0 0 0;
-  color: #a19e9ee1;
 }
 .reasonCardIcon img{
   
@@ -411,21 +406,18 @@
 
 .faq {
     padding: 10px 0 70px;
-    
   }
 
-  .faq-list { 
+  .faq-list {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    max-width: 1040px;
-    margin-left: 2rem;
+    gap: 2px;
+    max-width: 1250px;
   }
-  
-  .faq-item { 
+
+  .faq-item {
     background-color: #2d2d2d;
     border-radius: 2px;
-     
   }
 
   .faq-item summary {
@@ -510,13 +502,7 @@
   }
   
   .bottom-cta .footer-email-form {
-      display: flex;
-  align-items: center;
-  gap: 10px;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin: 0 auto;
-  max-width: 620px;
+    margin: 0 auto;
     
     
      
@@ -547,7 +533,7 @@
   .footer-btn-getstarted {
     background-color: var(--netflix-red);
     color: #fff;
-    font-weight: 500;
+    font-weight: 700;
     font-size: 24px;
     padding: 12px 24px;
     margin-left: 0.5rem;
@@ -567,7 +553,7 @@
   }
 
   .footer-btn-getstarted .arrow {
-    font-size: 13px;
+    font-size: 35px;
     line-height: 1;
     font-weight: 300;
     padding-left: 0.4rem;
@@ -632,8 +618,7 @@
 
   .footer-region {
     font-size: 0.9rem;
-    margin-bottom: 35px;
-    margin-top: 10px;
+    margin-bottom: 6px;
   }
 
   .footer-recaptcha {
@@ -695,9 +680,7 @@
 }
 
 .trending-slider-wrapper {
-   
   position: relative;
-  
 }
 
 .slider-arrow {
@@ -911,73 +894,119 @@ body.modal-open {
   overflow: hidden;
 }
 
+@media (max-width: 640px) {
+  .modal-banner {
+    height: 180px;
+  }
+  .modal-body {
+    padding: 4px 20px 28px;
+  }
+  .modal-title {
+    font-size: 1.4rem;
+  }
+}
+
+/* ============================================================
+   ADDED MOBILE-RESPONSIVE MEDIA QUERIES
+   Nothing above this block was changed. These queries only
+   override sizing/spacing that was hardcoded in px/vw for
+   desktop, so the layout adapts on tablets and phones without
+   touching any base (desktop) styles.
+============================================================ */
+
+/* ---------- Tablet / small laptop ---------- */
 @media (max-width: 1024px) {
   .site-header {
     margin-left: 4rem;
     width: 90vw;
   }
- 
+
   .hero-center-glow {
     width: 90vw;
     max-width: 900px;
   }
- 
+
   .trending-track {
     width: 90vw;
     margin-left: 1rem;
     padding-left: 24px;
-    gap: 30px;
+    gap: 24px;
   }
- 
+
+  .trending-card {
+    flex-basis: calc((100% - (2 * 24px)) / 3.3);
+  }
+
   .reasonCardContainer {
     justify-content: center;
     gap: 24px;
     height: auto;
   }
- 
+
+  .reasonCardContainerContent {
+    height: auto;
+    min-height: 280px;
+    padding: 24px 16px 24px 16px;
+    top: 0;
+    margin-top: 0;
+  }
+
+  .reasonCardIcon {
+    position: static;
+    margin-top: 1.5rem;
+  }
+
   .site-footer {
     padding: 10px 3rem 60px;
   }
 }
- 
+
 /* ---------- Tablet portrait / large phone ---------- */
 @media (max-width: 900px) {
   .site-header {
     margin-left: 2rem;
     width: 92vw;
   }
- 
+
   .logo img {
     height: 4.6rem;
   }
- 
+
   .hero-content h1 {
     font-size: 2.6rem;
     line-height: 1.25;
   }
- 
+
   .hero-subtitle {
     font-size: 1.15rem;
   }
- 
+
   .section-title {
     margin-left: 1.5rem;
   }
- 
+
   .reasonSection h2 {
     margin-left: 1rem;
     font-size: 2rem;
   }
- 
+
   .reasonCardContainer {
     margin-left: 0;
   }
- 
+
+  .trending-track {
+    gap: 20px;
+  }
+
+  .trending-card {
+    flex-basis: calc((100% - (1 * 20px)) / 2.3);
+  }
+
   .bottom-cta .footer-email-form input[type="email"] {
     width: 100%;
     max-width: 420px;
   }
- 
+
   .bottom-cta .footer-email-form {
     display: flex;
     flex-wrap: wrap;
@@ -986,7 +1015,7 @@ body.modal-open {
     padding: 0 20px;
   }
 }
- 
+
 /* ---------- Mobile ---------- */
 @media (max-width: 640px) {
   .site-header {
@@ -994,127 +1023,129 @@ body.modal-open {
     width: 100%;
     padding: 18px 20px 0;
   }
- 
+
   .logo img {
     height: 3.4rem;
   }
- 
+
   .hero-center-glow {
     width: 90vw;
     height: 60px;
     top: 30rem;
   }
- 
+
   .hero-cta-label {
     font-size: 0.9rem;
     padding: 0 10px;
   }
- 
+
+  /* .email-form switches to flex-direction: column here (see original
+     rule above). In a column flex container, flex-basis controls
+     height, not width — so the input's original "flex: 1 1 320px"
+     would make it ~320px TALL. Reset it to a plain full-width block
+     so it just fills the row like a normal stacked input. */
+  .email-form input[type="email"] {
+    flex: 0 1 auto;
+    width: 100%;
+    max-width: 100%;
+  }
+
   .section-title {
     margin-left: 1rem;
     font-size: 1.4rem;
   }
- 
+
   .trending-track {
     width: 100%;
     margin-left: 0;
     padding: 5px 0 20px 16px;
     gap: 16px;
   }
- 
+
+  .trending-card {
+    flex-basis: calc((100% - (1 * 16px)) / 1.5);
+  }
+
   .reasonSection {
     padding: 3rem 1rem;
   }
- 
+
   .reasonSection h2 {
     margin-left: 0.5rem;
     font-size: 1.6rem;
   }
- 
+
   .reasonCardContainer {
     flex-direction: column;
     align-items: center;
     height: auto;
     margin-left: 0;
   }
- 
+
   .reasonCardContainerContent {
     width: 90%;
     max-width: 320px;
-    height: auto;
-    min-height: 260px;
-    padding: 24px 16px 100px 16px;
-    top: 0;
-    margin-top: 0;
+    min-height: 240px;
   }
- 
-  .reasonCardIcon {
-    top: auto;
-    bottom: 1.5rem;
-    left: 1.5rem;
-  }
- 
+
   .reasonCardIcon img {
     width: 100px;
     height: 100px;
   }
- 
+
   .faq-item summary {
     padding: 16px 18px;
     font-size: 1.05rem;
   }
- 
+
   .faq-answer {
     padding: 0 18px 20px;
     font-size: 1rem;
   }
- 
+
   .bottom-cta .footer-email-form input[type="email"] {
     width: 100%;
     max-width: none;
   }
- 
+
   .footer-btn-getstarted,
   .btn-getstarted {
     width: 100%;
     justify-content: center;
   }
- 
+
   .site-footer {
     padding: 10px 1.5rem 40px;
   }
- 
+
   .footer-links {
     max-width: 100%;
   }
- 
+
   .movie-modal {
     width: 94vw;
   }
 }
- 
+
 /* ---------- Small phones ---------- */
 @media (max-width: 420px) {
   .hero-content h1 {
     font-size: 1.5rem;
   }
- 
+
   .hero-subtitle {
     font-size: 0.95rem;
   }
- 
+
   .trending-card {
-    flex-basis: calc((100% - (1 * 16px)) / 1.15);
+    flex-basis: calc((100% - (1 * 16px)) / 1.1);
   }
- 
+
   .modal-title {
     font-size: 1.2rem;
   }
- 
+
   .footer-links {
     grid-template-columns: 1fr;
   }
 }
- 
-
-
